@@ -102,7 +102,7 @@ sudo -l
 sudo iconv -f 8859_1 -t 8859_1 "/root/root.txt"
 ```
 
-## 3. Tech_Supp0rt: 1
+## 3. Battery
 Идея - 
 ```bash
 nmap -sC -sV -oN MACHINE_IP
