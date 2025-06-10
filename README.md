@@ -1,3 +1,19 @@
+# Hack the Box
+Решение задачи Titanic с Hack the Box
+
+## Titanic
+Идея - 
+
+```bash
+# Сканируем порты
+nmap -sCV -T4 MACHINE_IP
+
+# Также используем gobuster
+gobuster dir -u MACHINE_IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+```
+
+
+
 # TryHackMe
 ~~Записки сумасшедшего~~ Решения задач с TryHackMe
 
